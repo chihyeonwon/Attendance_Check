@@ -1,5 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wonchihyeon.AttendanceCheck.attendancecheck">
+    <!-- 상세 위치 권한 등록 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
    <application
         android:label="attendancecheck"
         android:name="${applicationName}"
