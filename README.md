@@ -1,16 +1,19 @@
-# attendancecheck
+# Attendance_Check 출석체크 앱 프로젝트
 
-A new Flutter project.
+```
+개발 툴 : Flutter
+개발 언어 : Dart
+개발 일시 : 2023-02-09 ~
+개발자 : Won Chi Hyeon
+```
 
-## Getting Started
+## 앱 개요
+```
+기능 : 구글 지도를 활용해서 지도 UI를 구현합니다.
+       현재 위치로 이동 버튼을 눌러서 GPS 상의 현재 위치로 이동합니다.
+       출근 가능한 위치로 이동하면 [출근하기] 버튼을 눌러서 출근 체크를 할 수 있습니다.
+       출근 가능한 위치가 아니라면 [출근하기] 버튼은 보이지 않습니다.
+       
+사용한 플러그인 : google_maps_flutter, geolocator
+```
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
