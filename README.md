@@ -17,3 +17,11 @@
 사용한 플러그인 : google_maps_flutter, geolocator
 ```
 
+## 구글 지도 API 발급받기
+```
+구글 클라우드 사이트에서 프로젝트를 만들고 API를 받는 과정은 전에 google_maps 라이브러리 사용을 학습하면서
+한번 경험한 적이 있기에 API 발급받는 과정은 쉽게 해결할 수 있었습니다.
+Maps SDK for Android, iOS 모두 사용하고 API를 1개 발급받았습니다.
+```
+![image](https://user-images.githubusercontent.com/58906858/217715999-37c18b5e-4dc0-400d-9858-7d568b25a1b0.png)   
+![image](https://user-images.githubusercontent.com/58906858/217716053-a084640b-c995-4a50-8fd1-a8c8f398c5f5.png)
