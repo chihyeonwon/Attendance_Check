@@ -25,3 +25,10 @@ Maps SDK for Android, iOS 모두 사용하고 API를 1개 발급받았습니다.
 ```
 ![image](https://user-images.githubusercontent.com/58906858/217715999-37c18b5e-4dc0-400d-9858-7d568b25a1b0.png)   
 ![image](https://user-images.githubusercontent.com/58906858/217716053-a084640b-c995-4a50-8fd1-a8c8f398c5f5.png)
+
+## 필요한 라이브러리 설치
+```
+flutter pub add google_maps_flutter, flutter pub add geolocator 명령어로 필요한 라이브러리를 설치하였습니다.
+google_maps_flutter와 geolocator의 최신 플러그인을 설치하였습니다.
+```
+![image](https://user-images.githubusercontent.com/58906858/217716324-6cc260b1-6514-4946-a5a0-e1162747a8a1.png)
