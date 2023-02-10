@@ -92,3 +92,12 @@ initialCameraPosition 필수 매개변수에는 CameraPosition 클래스를 입�
 ![image](https://user-images.githubusercontent.com/58906858/217998136-55e51ee3-0221-416b-acf5-e15a9ec011eb.png)      
 ![image](https://user-images.githubusercontent.com/58906858/217998320-bcde9ada-e4c1-44bb-a1a9-e22e1d72a273.png)   
 ![image](https://user-images.githubusercontent.com/58906858/217998513-b7d4fdab-7039-464a-9a57-f5fde60e38c0.png)
+
+## Footer에 시계아이콘, 버튼 구현하기
+```
+body의 구글 지도가 차지하는 공간을 Expanded로 감싸고 flex 2 (전체의 2/3)을 주고 전체를 Column으로 감싸줍니다.
+남은 1/3의 공간에 시계 아이콘과 출근하기 버튼을 생성하였습니다.
+```
+![image](https://user-images.githubusercontent.com/58906858/217999503-7e2ce257-c5e0-4e1d-af5e-6ed58237e636.png)   
+![image](https://user-images.githubusercontent.com/58906858/217999531-541553a9-0d9b-4d75-9b3b-e9c0fea42863.png)
+
