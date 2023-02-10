@@ -70,3 +70,13 @@ AppBar는 renderAppBar 함수를 만들어서 구현하였습니다.
 ```
 ![image](https://user-images.githubusercontent.com/58906858/217996556-89a20ff4-03cd-4cf3-9938-a0fdb50864fb.png)   
 ![image](https://user-images.githubusercontent.com/58906858/217996598-474ab492-2128-46d4-acda-422ca38a7f32.png)
+
+## 지도 초기화 위치 생성
+```
+google_maps_flutter 라이브러리를 import 해주고 라이브러리에 들어있는 LatLng 클래스를 사용해서
+지도의 초기화 위치를 설정해줍니다. 
+위도 37.5233273, 경도 126.921252 의 위치값을 companyLatLng 객체에 저장하였습니다.
+```
+![image](https://user-images.githubusercontent.com/58906858/217997178-ad94342f-e6c5-4e07-9794-5960c97c31c5.png)      
+![image](https://user-images.githubusercontent.com/58906858/217997235-45a9835b-b67c-4c9b-bff4-15f9b9524e14.png)
+
