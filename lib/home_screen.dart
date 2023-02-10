@@ -15,38 +15,59 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: renderAppBar(),
-      body: Column(
-        children: [
-          Expanded(
-            flex:2,
-            child: GoogleMap(
-              initialCameraPosition: CameraPosition(
-                target:companyLatLng,
-                zoom:16,
-              ),
+      body: FutureBuilder<String> (
+       future: checkPermission(),
+        builder: (context, snapshot) {
+         // 로딩 상태일 때
+          if(!snapshot.hasData && snapshot.connectionState == ConnectionState.waiting) {
+            return Center(
+              child:CircularProgressIndicator(),
+            );
+          }
+          // 권한이 허가된 상태
+          if(snapshot.data == '위치 권한이 허가 되었습니다.'){
+            // 기존 Column 위젯 코드
+            return Column(
+              children: [
+                Expanded(
+                  flex:2,
+                  child: GoogleMap(
+                    initialCameraPosition: CameraPosition(
+                      target:companyLatLng,
+                      zoom:16,
+                    ),
+                  ),
+                ),
+                Expanded( // 1/3만큼 공간 차지
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children:[
+                          Icon( // 시계아이콘
+                            Icons.timelapse_outlined,
+                            color:Colors.blue,
+                            size:50.0,
+                          ),
+                          const SizedBox(
+                            height:20.0,
+                          ),
+                          ElevatedButton( // 출근하기 버튼
+                            onPressed: (){ },
+                            child:Text('출근하기!'),
+                          ),
+                        ],
+                    ),
+                ),
+              ],
+            );
+          }
+          // 권한이 없는 상태
+          return Center(
+            child:Text(
+              snapshot.data.toString(),
             ),
-          ),
-          Expanded( // 1/3만큼 공간 차지
-             child: Column(
-               mainAxisAlignment: MainAxisAlignment.center,
-               children:[
-                 Icon( // 시계아이콘
-                   Icons.timelapse_outlined,
-                   color:Colors.blue,
-                   size:50.0,
-                 ),
-                 const SizedBox(
-                   height:20.0,
-                 ),
-                 ElevatedButton( // 출근하기 버튼
-                   onPressed: (){ },
-                   child:Text('출근하기!'),
-                 ),
-               ]
-             )
-          )
-        ],
-      ),
+          );
+        }
+      )
     );
   }
 }
