@@ -62,3 +62,11 @@ ios/Runner/Info.plist 파일에 권한 요청 메시지를 추가합니다.
 
 ### [iOS 권한 요청 메시지] 
 ![image](https://user-images.githubusercontent.com/58906858/217718424-568efd98-8050-49bf-9043-501986980d99.png)
+
+## AppBar 구현하기
+```
+AppBar는 renderAppBar 함수를 만들어서 구현하였습니다.
+흰색 배경색에, 제목은 가운데 정렬, 제목의 폰트사이즈 등을 설정하였습니다.
+```
+![image](https://user-images.githubusercontent.com/58906858/217996556-89a20ff4-03cd-4cf3-9938-a0fdb50864fb.png)   
+![image](https://user-images.githubusercontent.com/58906858/217996598-474ab492-2128-46d4-acda-422ca38a7f32.png)
