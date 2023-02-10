@@ -32,7 +32,14 @@ class HomeScreen extends StatelessWidget {
                    Icons.timelapse_outlined,
                    color:Colors.blue,
                    size:50.0,
-                 )
+                 ),
+                 const SizedBox(
+                   height:20.0,
+                 ),
+                 ElevatedButton( // 출근하기 버튼
+                   onPressed: (){ },
+                   child:Text('출근하기!'),
+                 ),
                ]
              )
           )
