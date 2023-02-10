@@ -24,6 +24,18 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
+          Expanded( // 1/3만큼 공간 차지
+             child: Column(
+               mainAxisAlignment: MainAxisAlignment.center,
+               children:[
+                 Icon( // 시계아이콘
+                   Icons.timelapse_outlined,
+                   color:Colors.blue,
+                   size:50.0,
+                 )
+               ]
+             )
+          )
         ],
       ),
     );
