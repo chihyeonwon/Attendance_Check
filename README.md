@@ -112,3 +112,21 @@ String Future 타입의 checkPermission 함수를 구현하였습니다.
 ```
 ![image](https://user-images.githubusercontent.com/58906858/218001144-9635146d-773b-443b-bb9a-9c3ea4501581.png)
 
+
+## checkPermission 함수의 값에 따라 변경되는 UI
+```
+checkPermission의 리턴값에 따라 권한 유무를 알 수 있고 권한 유무에 따라 다른 ui를 보여주기 위해서
+FutureBuilder 를 사용하였습니다. 전에 웹툰 앱 프로젝트를 하면서 FutureBuilder의 사용법은 알고 있었습니다.
+
+로딩상태(hasData == null 이거나 connectionState가 waiting 일때) 로딩 위젯을 보여주고
+위치 권한이 허가되었습니다.라는 String 값이 넘어오면 Column의 위젯들을 보여주고
+그외 (위치 권한이 거절되거나 앱에서 권한 설정이 거부되었을 때) 해당하는 문구를 보여줍니다.
+```
+### [앱을 켰을 때 위치 권한 사을 사용자에게 요청하는 화면]
+![image](https://user-images.githubusercontent.com/58906858/218002965-b5b2862e-1e43-46e3-a16a-401b691a89ff.png)
+
+### [위치 권한을 거부하였을 때의 화면]
+![image](https://user-images.githubusercontent.com/58906858/218003087-1283cafa-9e56-4013-8612-c2bd776cbb21.png)
+
+### [앱 사용중에만 허용, 이번만 허용을 했을 때의 화면]
+![image](https://user-images.githubusercontent.com/58906858/218003470-87e12fb3-aacc-4aa7-832d-a61d4cc466dc.png)
