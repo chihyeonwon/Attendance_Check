@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
             );
           }
           // 권한이 허가된 상태
-          if(snapshot.data == '위치 권한이 허가 되었습니다.'){
+          if(snapshot.data == '위치 권한이 허가되었습니다.'){
             // 기존 Column 위젯 코드
             return Column(
               children: [
