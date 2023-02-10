@@ -80,3 +80,15 @@ google_maps_flutter 라이브러리를 import 해주고 라이브러리에 들�
 ![image](https://user-images.githubusercontent.com/58906858/217997178-ad94342f-e6c5-4e07-9794-5960c97c31c5.png)      
 ![image](https://user-images.githubusercontent.com/58906858/217997235-45a9835b-b67c-4c9b-bff4-15f9b9524e14.png)
 
+## body에 지도 구현하기
+```
+GoogleMap 위젯을 사용해서 구글 지도를 body에 나타내었습니다.
+initialCameraPosition 필수 매개변수에는 CameraPosition 클래스를 입력해주고 필수 정보인 target에는 
+위에서 설정한 LatLng 위치정보를 zoom에는 확대 정도 값을 double타입으로 지정합니다.
+
+정상적으로 초기 위치정보(37.5233273, 126.921252)를 보여주는 구글 지도가 화면에 나타납니다.
+```
+![image](https://user-images.githubusercontent.com/58906858/217998071-b1d486b5-56e9-4894-9f16-31d4a4e5e484.png)         
+![image](https://user-images.githubusercontent.com/58906858/217998136-55e51ee3-0221-416b-acf5-e15a9ec011eb.png)      
+![image](https://user-images.githubusercontent.com/58906858/217998320-bcde9ada-e4c1-44bb-a1a9-e22e1d72a273.png)   
+![image](https://user-images.githubusercontent.com/58906858/217998513-b7d4fdab-7039-464a-9a57-f5fde60e38c0.png)
