@@ -65,3 +65,31 @@ AppBar renderAppBar() {
     backgroundColor:Colors.white,
   );
 }
+
+Future<String> checkPermission() async {
+  final isLocationEnabled = await Geolocator.isLocationServiceEnabled();
+
+  if(!isLocationEnabled) { // 위치 서비스 활성화 안됨
+    return '위치 서비스를 활성화해주세요.';
+  }
+
+  LocationPermission checkedPermission = await Geolocator.checkPermission(); // 위치 권한 확인
+
+  if(checkedPermission == LocationPermission.denied) { // 위치 권한 거절됨
+    // 위치 권한 요청하기
+    checkedPermission = await Geolocator.requestPermission();
+
+    if(checkedPermission == LocationPermission.denied) {
+      return '위치 권한을 허가해주세요.';
+    }
+  }
+
+  // 위치 권한 거절됨 (앱에서 재요청 불가)
+  if(checkedPermission == LocationPermission.deniedForever) {
+    return '앱의 위치 권한을 설정에서 허가해주세요.';
+  }
+
+  // 위 모든 조건이 통과되면 위치 권한 허가 완료
+  return '위치 권한이 허가되었습니다.';
+}
+
