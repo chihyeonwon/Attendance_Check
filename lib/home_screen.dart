@@ -3,6 +3,11 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
+  
+  static final LatLng companyLatLng = LatLng(
+    37.5233273, // 위도
+    126.921252, // 경도
+  );
 
   @override
   Widget build(BuildContext context) {
