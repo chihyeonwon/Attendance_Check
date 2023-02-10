@@ -1,4 +1,4 @@
-# Attendance_Check 출석체크 앱 프로젝트
+# Attendance_Check 오늘도  앱 프로젝트
 
 ```
 개발 툴 : Flutter
