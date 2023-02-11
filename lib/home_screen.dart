@@ -20,8 +20,8 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
   static final LatLng universityLatLng = LatLng(
-    37.5233273, // 위도
-    126.921252, // 경도
+    37.3047, // 위도
+    127.9226, // 경도
   );
 
   // 회사 위치 마커 생성
