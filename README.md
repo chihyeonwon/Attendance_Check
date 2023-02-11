@@ -3,7 +3,7 @@
 ```
 개발 툴 : Flutter
 개발 언어 : Dart
-개발 일시 : 2023-02-09 ~
+개발 일시 : 2023-02-09 ~ 2023-02-11
 개발자 : Won Chi Hyeon
 ```
 
@@ -16,6 +16,13 @@
        
 사용한 플러그인 : google_maps_flutter, geolocator
 ```
+#### [앱 홈 화면]   
+![image](https://user-images.githubusercontent.com/58906858/218239074-c57beb1e-f16c-48f5-a20e-de9a51fb56d3.png)   
+#### [목적지와의 거리가 100미터 이하일 때]   
+![image](https://user-images.githubusercontent.com/58906858/218239179-85d3dbbd-7e22-4241-b163-1ccfe4399c0f.png)   
+#### [목적지와의 거리가 100미터 이상일 때]   
+![image](https://user-images.githubusercontent.com/58906858/218239521-a9d9935d-646b-46f9-89e4-3346b870e2fc.png)
+
 
 ## 구글 지도 API 발급받기
 ```
@@ -192,3 +199,11 @@ canCheck을 생성합니다. 버튼을 눌렀을 때 AlerDialog가 canCheck의 b
 ### [현재 위치와 회사 위치 간의 거리가 100 미터 이내일 때]
 ![image](https://user-images.githubusercontent.com/58906858/218238570-f9dd9eaa-595f-4f9a-8de5-fbce28ea084d.png)
 
+#### 향후 앱 스토어 출시 계획
+```
+Sqlite 데이터베이스를 사용해서 대학교 근방에 도착해서 등교하기 버튼을 눌렀을 때 등교한 횟수를 저장하는 기능을 추가하고 
+내가 누구인지 저장하는 개인 설정 페이지도 추가하여 원주대 모범생 어플을 만들어 볼 생각입니다.
+
+학교 구성원들과 소통하면서 앱에 추가할 수 있는 기능을 만들어 보고자 출시하고 기능을 추가, 수정해 나갈 계획입니다.
+이후 추가되는 기능은 여기서부터 모두 비공개로 하며 출시한 후에 플레이스토어 앱 링크를 올리도록 하겠습니다.
+```
