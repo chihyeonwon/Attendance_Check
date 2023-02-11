@@ -165,3 +165,30 @@ GPS 상의 위치를 지도에 표시할 수 있습니다. 지도의 나침반 �
 ![image](https://user-images.githubusercontent.com/58906858/218237200-52f316fa-c79c-4a18-8ef9-15f78dbce665.png)   
 ![image](https://user-images.githubusercontent.com/58906858/218237206-50e379a0-e9f9-4841-89eb-be6978e0eab1.png)
 
+## 출근하기 버튼 기능 로직 준비하기
+```
+출근하기 버튼을 눌렀을 때 현재 위치와 목적지(회사) 위치 간의 거리가 100미터 안에 있다면 출근하기 버튼을 눌렀을 때
+출근하시겠습니까?라는 문자와 출근하기 버튼이 있는 화면이, 100미터 밖에 있다면 출근할 수 없는 위치입니다.라는 문자와 함께 취소 버튼이 있는 화면을
+보여주도록 로직을 만들어주면 됩니다.
+
+먼저 현재 위치를 비동기로 받고 distanceBetween을 사용해서 현재 위치와 목적지의 위치 간의 거리를 계산해서 distance에 저장하였습니다.
+```
+![image](https://user-images.githubusercontent.com/58906858/218237898-683e138e-16c1-4111-b970-0fc9dc96154c.png)
+
+## 출근하기 버튼 구현하기
+```
+출근하기 버튼 로직을 완성하여 구현해보겠습니다. 먼저 현재 위치와 회사 위치 간 거리가 100미터 이내인지를 체크하는 bool 타입의
+canCheck을 생성합니다. 버튼을 눌렀을 때 AlerDialog가 canCheck의 bool 값에 따라 다른 메시지(content)가 제공되도록 하였습니다.
+100미터 이내에 있어 그 값이 true 일 때는 출근을 하시겠습니까라는 메시지와 출근하기 버튼이, 100미터보다 멀리 있어 그 값이 false 일 때는
+출근할 수 없는 위치입니다.라는 문구와 취소하기 버튼만이 나타나도록 하였습니다.
+
+테스트는 현재 위치와 회사 위치 간 거리가 100미터 이상일 때와 
+에뮬레이터의 현재 위치를 회사 위치 근처로 변경한 후에 버튼을 눌렀을 때 나타나는 다이얼로그를 테스트 하였습니다.
+```
+![image](https://user-images.githubusercontent.com/58906858/218238421-6561c5bc-2d4b-4b0b-82c3-6a2b69af2511.png)   
+### [현재 위치와 회사 위치 간의 거리가 100 미터 이상일 때]
+![image](https://user-images.githubusercontent.com/58906858/218238463-1afb1727-5109-406d-8c4a-f0b8c0b76cd3.png)
+
+### [현재 위치와 회사 위치 간의 거리가 100 미터 이내일 때]
+![image](https://user-images.githubusercontent.com/58906858/218238570-f9dd9eaa-595f-4f9a-8de5-fbce28ea084d.png)
+
