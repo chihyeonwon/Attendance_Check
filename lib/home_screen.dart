@@ -42,6 +42,7 @@ class HomeScreen extends StatelessWidget {
                       target:companyLatLng,
                       zoom:16,
                     ),
+                    markers: Set.from([marker]),
                   ),
                 ),
                 Expanded( // 1/3만큼 공간 차지
