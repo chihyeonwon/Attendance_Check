@@ -140,3 +140,14 @@ FutureBuilder 를 사용하였습니다. 전에 웹툰 앱 프로젝트를 하�
 ![image](https://user-images.githubusercontent.com/58906858/218236846-af876a6e-6194-4e2a-92fe-2908e8647620.png)   
 ![image](https://user-images.githubusercontent.com/58906858/218236861-95012a9f-b350-4506-9207-b4306d83e4fd.png)
 
+## 현재 위치 반경 표시하기
+```
+현재 위치의 반경을 Circle 클래스를 사용해서 원 모양으로 지도에 표시하였습니다. 방법은 마커와 거의 같습니다.
+원을 생성하고 Set을 사용해서 지도에 반경을 표시합니다.
+```
+![image](https://user-images.githubusercontent.com/58906858/218236920-5bf32fc3-d117-401f-80fe-4a7f51771d24.png)
+![image](https://user-images.githubusercontent.com/58906858/218236927-e81127cd-0361-46b8-8a92-8760f4f68f57.png)   
+![image](https://user-images.githubusercontent.com/58906858/218236931-cb46cd90-4755-4155-9b7c-439cbb041e7b.png)
+
+
+
