@@ -79,6 +79,42 @@ class HomeScreen extends StatelessWidget {
                                 companyLatLng.latitude, // 회사 위치 위도
                                 companyLatLng.longitude, // 회사 위치 경도
                               );
+
+                              bool canCheck = distance < 100; // 100미터 이내에 있으면 출근 가능
+
+                              showDialog(
+                                context: context,
+                                builder: (_) {
+                                  return AlertDialog(
+                                    title: Text('출근하기'),
+
+                                    // 출근 가능 여부에 따라 다른 메시지 제공
+                                    content: Text(
+                                      canCheck ? '출근을 하시겠습니까?' : "출근할 수 없는 위치입니다.",
+                                    ),
+                                    actions:[
+                                      TextButton(
+
+                                        // 취소를 누르면 false 반환 (공통)
+                                        onPressed:() {
+                                          Navigator.of(context).pop(false);
+                                        },
+                                        child: Text('취소'),
+                                      ),
+
+                                      if(canCheck) // 출근 가능한 상태일 때만 [출근하기] 버튼 제공
+                                        TextButton(
+
+                                          // 출근하기 버튼을 누르면 true 반환
+                                          onPressed: () {
+                                            Navigator.of(context).pop(true);
+                                          },
+                                          child:Text('출근하기'),
+                                        ),
+                                    ],
+                                  );
+                                }
+                              );
                             },
                             child:Text('출근하기!'),
                           ),
