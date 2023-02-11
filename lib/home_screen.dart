@@ -3,9 +3,14 @@ import 'package:geolocator/geolocator.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
-  
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   static final LatLng companyLatLng = LatLng(
     37.5233273, // 위도
     126.921252, // 경도
@@ -30,35 +35,35 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: renderAppBar(),
-      body: FutureBuilder<String> (
-       future: checkPermission(),
-        builder: (context, snapshot) {
-         // 로딩 상태일 때
-          if(!snapshot.hasData && snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
-              child:CircularProgressIndicator(),
-            );
-          }
-          // 권한이 허가된 상태
-          if(snapshot.data == '위치 권한이 허가되었습니다.'){
-            // 기존 Column 위젯 코드
-            return Column(
-              children: [
-                Expanded(
-                  flex:2,
-                  child: GoogleMap(
-                    initialCameraPosition: CameraPosition(
-                      target:companyLatLng,
-                      zoom:16,
+        appBar: renderAppBar(),
+        body: FutureBuilder<String> (
+            future: checkPermission(),
+            builder: (context, snapshot) {
+              // 로딩 상태일 때
+              if(!snapshot.hasData && snapshot.connectionState == ConnectionState.waiting) {
+                return Center(
+                  child:CircularProgressIndicator(),
+                );
+              }
+              // 권한이 허가된 상태
+              if(snapshot.data == '위치 권한이 허가되었습니다.'){
+                // 기존 Column 위젯 코드
+                return Column(
+                  children: [
+                    Expanded(
+                      flex:2,
+                      child: GoogleMap(
+                        initialCameraPosition: CameraPosition(
+                          target:_HomeScreenState.companyLatLng,
+                          zoom:16,
+                        ),
+                        markers: Set.from([_HomeScreenState.marker]),
+                        circles: Set.from([_HomeScreenState.circle]),
+                        myLocationEnabled: true,
+                      ),
                     ),
-                    markers: Set.from([marker]),
-                    circles: Set.from([circle]),
-                    myLocationEnabled: true,
-                  ),
-                ),
-                Expanded( // 1/3만큼 공간 차지
-                    child: Column(
+                    Expanded( // 1/3만큼 공간 차지
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children:[
                           Icon( // 시계아이콘
@@ -72,69 +77,72 @@ class HomeScreen extends StatelessWidget {
                           ElevatedButton( // 출근하기 버튼
                             onPressed: () async {
                               final curPosition = await Geolocator.getCurrentPosition(); // 현재 위치
-                              
+
                               final distance = Geolocator.distanceBetween(
                                 curPosition.latitude, // 현재 위치 위도
                                 curPosition.longitude, // 현재 위치 경도
-                                companyLatLng.latitude, // 회사 위치 위도
-                                companyLatLng.longitude, // 회사 위치 경도
+                                _HomeScreenState.companyLatLng.latitude, // 회사 위치 위도
+                                _HomeScreenState.companyLatLng.longitude, // 회사 위치 경도
                               );
 
                               bool canCheck = distance < 100; // 100미터 이내에 있으면 출근 가능
 
                               showDialog(
-                                context: context,
-                                builder: (_) {
-                                  return AlertDialog(
-                                    title: Text('출근하기'),
+                                  context: context,
+                                  builder: (_) {
+                                    return AlertDialog(
+                                      title: Text('출근하기'),
 
-                                    // 출근 가능 여부에 따라 다른 메시지 제공
-                                    content: Text(
-                                      canCheck ? '출근을 하시겠습니까?' : "출근할 수 없는 위치입니다.",
-                                    ),
-                                    actions:[
-                                      TextButton(
-
-                                        // 취소를 누르면 false 반환 (공통)
-                                        onPressed:() {
-                                          Navigator.of(context).pop(false);
-                                        },
-                                        child: Text('취소'),
+                                      // 출근 가능 여부에 따라 다른 메시지 제공
+                                      content: Text(
+                                        canCheck ? '출근을 하시겠습니까?' : "출근할 수 없는 위치입니다.",
                                       ),
-
-                                      if(canCheck) // 출근 가능한 상태일 때만 [출근하기] 버튼 제공
+                                      actions:[
                                         TextButton(
 
-                                          // 출근하기 버튼을 누르면 true 반환
-                                          onPressed: () {
-                                            Navigator.of(context).pop(true);
+                                          // 취소를 누르면 false 반환 (공통)
+                                          onPressed:() {
+                                            Navigator.of(context).pop(false);
                                           },
-                                          child:Text('출근하기'),
+                                          child: Text('취소'),
                                         ),
-                                    ],
-                                  );
-                                }
+
+                                        if(canCheck) // 출근 가능한 상태일 때만 [출근하기] 버튼 제공
+                                          TextButton(
+
+                                            // 출근하기 버튼을 누르면 true 반환
+                                            onPressed: () {
+                                              Navigator.of(context).pop(true);
+                                            },
+                                            child:Text('출근하기'),
+                                          ),
+                                      ],
+                                    );
+                                  }
                               );
                             },
                             child:Text('출근하기!'),
                           ),
                         ],
+                      ),
                     ),
+                  ],
+                );
+              }
+              // 권한이 없는 상태
+              return Center(
+                child:Text(
+                  snapshot.data.toString(),
                 ),
-              ],
-            );
-          }
-          // 권한이 없는 상태
-          return Center(
-            child:Text(
-              snapshot.data.toString(),
-            ),
-          );
-        }
-      )
+              );
+            }
+        )
     );
   }
 }
+
+  
+
 
 AppBar renderAppBar() {
   //AppBar를 구현하는 함수
