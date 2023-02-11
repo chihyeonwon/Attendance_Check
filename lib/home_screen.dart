@@ -70,7 +70,16 @@ class HomeScreen extends StatelessWidget {
                             height:20.0,
                           ),
                           ElevatedButton( // 출근하기 버튼
-                            onPressed: (){ },
+                            onPressed: () async {
+                              final curPosition = await Geolocator.getCurrentPosition(); // 현재 위치
+                              
+                              final distance = Geolocator.distanceBetween(
+                                curPosition.latitude, // 현재 위치 위도
+                                curPosition.longitude, // 현재 위치 경도
+                                companyLatLng.latitude, // 회사 위치 위도
+                                companyLatLng.longitude, // 회사 위치 경도
+                              );
+                            },
                             child:Text('출근하기!'),
                           ),
                         ],
