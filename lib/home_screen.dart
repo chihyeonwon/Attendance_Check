@@ -53,6 +53,7 @@ class HomeScreen extends StatelessWidget {
                       zoom:16,
                     ),
                     markers: Set.from([marker]),
+                    circles: Set.from([circle]),
                   ),
                 ),
                 Expanded( // 1/3만큼 공간 차지
