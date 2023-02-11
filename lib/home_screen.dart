@@ -17,6 +17,16 @@ class HomeScreen extends StatelessWidget {
     position:companyLatLng,
   );
 
+  // 현재 위치 반경 표시하기
+  static final Circle circle = Circle(
+    circleId: CircleId('choolCheckCircle'),
+    center: companyLatLng, // 원의 중심이 되는 위치
+    fillColor: Colors.blue.withOpacity(0.5), // 원의 색상
+    radius: 100, // 원의 반지름 (미터 단위)
+    strokeColor: Colors.blue, // 원의 테두리 색
+    strokeWidth: 1, // 원의 두께
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
