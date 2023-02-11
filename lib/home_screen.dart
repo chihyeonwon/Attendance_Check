@@ -3,6 +3,8 @@ import 'package:geolocator/geolocator.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import 'page2.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -14,6 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   var _index = 0; // 페이지 인덱스 0, 1
   var _pages = [
     Page1(),
+    Page2(),
   ];
 
   static final LatLng companyLatLng = LatLng(
