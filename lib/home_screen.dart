@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Page2(),
   ];
 
-  static final LatLng companyLatLng = LatLng(
+  static final LatLng universityLatLng = LatLng(
     37.5233273, // 위도
     126.921252, // 경도
   );
@@ -27,13 +27,13 @@ class _HomeScreenState extends State<HomeScreen> {
   // 회사 위치 마커 생성
   static final Marker marker = Marker(
     markerId: MarkerId('company'),
-    position:companyLatLng,
+    position:universityLatLng,
   );
 
   // 현재 위치 반경 표시하기
   static final Circle circle = Circle(
     circleId: CircleId('choolCheckCircle'),
-    center: companyLatLng, // 원의 중심이 되는 위치
+    center: universityLatLng, // 원의 중심이 되는 위치
     fillColor: Colors.blue.withOpacity(0.5), // 원의 색상
     radius: 100, // 원의 반지름 (미터 단위)
     strokeColor: Colors.blue, // 원의 테두리 색
@@ -87,7 +87,7 @@ class Page1 extends StatelessWidget {
                   flex:2,
                   child: GoogleMap(
                     initialCameraPosition: CameraPosition(
-                      target:_HomeScreenState.companyLatLng,
+                      target:_HomeScreenState.universityLatLng,
                       zoom:16,
                     ),
                     markers: Set.from([_HomeScreenState.marker]),
@@ -114,8 +114,8 @@ class Page1 extends StatelessWidget {
                           final distance = Geolocator.distanceBetween(
                             curPosition.latitude, // 현재 위치 위도
                             curPosition.longitude, // 현재 위치 경도
-                            _HomeScreenState.companyLatLng.latitude, // 회사 위치 위도
-                            _HomeScreenState.companyLatLng.longitude, // 회사 위치 경도
+                            _HomeScreenState.universityLatLng.latitude, // 회사 위치 위도
+                            _HomeScreenState.universityLatLng.longitude, // 회사 위치 경도
                           );
 
                           bool canCheck = distance < 100; // 100미터 이내에 있으면 출근 가능
