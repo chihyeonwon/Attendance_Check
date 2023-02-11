@@ -107,7 +107,7 @@ class Page1 extends StatelessWidget {
                       const SizedBox(
                         height:20.0,
                       ),
-                      ElevatedButton( // 출근하기 버튼
+                      ElevatedButton( // 등교하기 버튼
                         onPressed: () async {
                           final curPosition = await Geolocator.getCurrentPosition(); // 현재 위치
 
@@ -124,11 +124,11 @@ class Page1 extends StatelessWidget {
                               context: context,
                               builder: (_) {
                                 return AlertDialog(
-                                  title: Text('출근하기'),
+                                  title: Text('등교하기'),
 
-                                  // 출근 가능 여부에 따라 다른 메시지 제공
+                                  // 등교 가능 여부에 따라 다른 메시지 제공
                                   content: Text(
-                                    canCheck ? '출근을 하시겠습니까?' : "출근할 수 없는 위치입니다.",
+                                    canCheck ? '등교를 하시겠습니까?' : "등교할 수 없는 위치입니다.",
                                   ),
                                   actions:[
                                     TextButton(
@@ -140,21 +140,21 @@ class Page1 extends StatelessWidget {
                                       child: Text('취소'),
                                     ),
 
-                                    if(canCheck) // 출근 가능한 상태일 때만 [출근하기] 버튼 제공
+                                    if(canCheck) // 등교 가능한 상태일 때만 [등교하기] 버튼 제공
                                       TextButton(
 
-                                        // 출근하기 버튼을 누르면 true 반환
+                                        // 등교하기 버튼을 누르면 true 반환
                                         onPressed: () {
                                           Navigator.of(context).pop(true);
                                         },
-                                        child:Text('출근하기'),
+                                        child:Text('등교하기'),
                                       ),
                                   ],
                                 );
                               }
                           );
                         },
-                        child:Text('출근하기!'),
+                        child:Text('등교하기!'),
                       ),
                     ],
                   ),
@@ -179,7 +179,7 @@ AppBar renderAppBar() {
   return AppBar(
     centerTitle:true,
     title:Text(
-      '오늘도 출근',
+      '오늘도 등교',
       style:TextStyle(
         color:Colors.blue,
         fontWeight:FontWeight.w700,
