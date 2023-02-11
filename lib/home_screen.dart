@@ -11,6 +11,12 @@ class HomeScreen extends StatelessWidget {
     126.921252, // 경도
   );
 
+  // 회사 위치 마커 생성
+  static final Marker marker = Marker(
+    markerId: MarkerId('company'),
+    position:companyLatLng,
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
