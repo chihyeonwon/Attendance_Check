@@ -33,8 +33,12 @@ class _Page2State extends State<Page2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body:Row(
         children: [
+          Text(
+            '등교한 횟수 : ',
+            style: TextStyle(fontSize: 50.0),
+          ),
           FutureBuilder(
            future: getPrefs(),
            builder:(context, snapshot) {
