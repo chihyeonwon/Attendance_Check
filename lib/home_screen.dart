@@ -2,6 +2,7 @@ import 'package:geolocator/geolocator.dart';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'page2.dart';
 
@@ -73,11 +74,26 @@ class Page1 extends StatefulWidget {
 }
 
 class _Page1State extends State<Page1> {
-  int attendanceCount = 0;
+
+  var counter;
+
+  Future initPrefs() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance(); // 사용자의 저장소에 connection
+    if(prefs == null) await prefs.setInt('attendanceCount', 0);
+    counter = prefs.getInt('attendanceCount');
+  }
+
+
+  @override
+  void initState() {
+    initPrefs();
+  }
+
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<String> (
+
+    return  FutureBuilder<String> (
         future: checkPermission(),
         builder: (context, snapshot) {
           // 로딩 상태일 때
@@ -151,10 +167,12 @@ class _Page1State extends State<Page1> {
                                     if(canCheck) // 등교 가능한 상태일 때만 [등교하기] 버튼 제공
                                       TextButton(
                                         // 등교하기 버튼을 누르면 true 반환
-                                        onPressed: () {
+                                        onPressed: () async {
+                                          SharedPreferences prefs = await SharedPreferences.getInstance();
                                           Navigator.of(context).pop(true);
-                                          setState(() {
-                                            attendanceCount++;
+                                          setState((){
+                                            counter++;
+                                            prefs.setInt('attendanceCount', counter);
                                           });
                                           },
                                         child:Text('등교하기'),
@@ -169,7 +187,7 @@ class _Page1State extends State<Page1> {
                     ],
                   ),
                 ),
-                Text('${attendanceCount}'),
+                Text('${counter}'),
               ],
             );
           }
