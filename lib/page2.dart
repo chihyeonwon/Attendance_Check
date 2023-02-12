@@ -77,7 +77,7 @@ class _Page2State extends State<Page2> {
           },
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: ElevatedButton(
         onPressed: () async {
           selectedId != null
               ? await DatabaseHelper.instance.update(
@@ -91,8 +91,9 @@ class _Page2State extends State<Page2> {
             selectedId = null;
           });
         },
-        child: Icon(Icons.add),
+        child: Text('프로필 저장'),
       ),
+
     );
   }
 }
