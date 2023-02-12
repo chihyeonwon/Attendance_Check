@@ -40,9 +40,6 @@ class _HomeScreenState extends State<HomeScreen> {
     strokeWidth: 1, // 원의 두께
   );
 
-  // 등교 횟수를 저장하는 변수 생성
-  int attendanceCount = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,7 +66,15 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-class Page1 extends StatelessWidget {
+class Page1 extends StatefulWidget {
+
+  @override
+  State<Page1> createState() => _Page1State();
+}
+
+class _Page1State extends State<Page1> {
+  int attendanceCount = 0;
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<String> (
@@ -145,11 +150,13 @@ class Page1 extends StatelessWidget {
 
                                     if(canCheck) // 등교 가능한 상태일 때만 [등교하기] 버튼 제공
                                       TextButton(
-
                                         // 등교하기 버튼을 누르면 true 반환
                                         onPressed: () {
                                           Navigator.of(context).pop(true);
-                                        },
+                                          setState(() {
+                                            attendanceCount++;
+                                          });
+                                          },
                                         child:Text('등교하기'),
                                       ),
                                   ],
@@ -162,6 +169,7 @@ class Page1 extends StatelessWidget {
                     ],
                   ),
                 ),
+                Text('${attendanceCount}'),
               ],
             );
           }
