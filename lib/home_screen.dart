@@ -187,7 +187,6 @@ class _Page1State extends State<Page1> {
                     ],
                   ),
                 ),
-                Text('${counter}'),
               ],
             );
           }
