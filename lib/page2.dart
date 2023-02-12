@@ -9,6 +9,19 @@ class Page2 extends StatefulWidget {
 }
 
 class _Page2State extends State<Page2> {
+
+  late SharedPreferences prefs;
+
+  Future initPrefs() async {
+    prefs = await SharedPreferences.getInstance(); // 사용자의 저장소에 connection
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    initPrefs();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
