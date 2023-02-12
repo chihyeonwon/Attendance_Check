@@ -40,6 +40,9 @@ class _HomeScreenState extends State<HomeScreen> {
     strokeWidth: 1, // 원의 두께
   );
 
+  // 등교 횟수를 저장하는 변수 생성
+  int attendanceCount = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
