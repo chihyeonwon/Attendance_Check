@@ -18,7 +18,7 @@ class _Page3State extends State<Page3> {
     final int? counter = prefs.getInt('attendanceCount');
     return Text(
       '${counter}',
-      style:TextStyle(fontSize:100.0),
+      style:TextStyle(fontSize:60.0),
     );
   }
 
@@ -55,7 +55,7 @@ class _Page3State extends State<Page3> {
               children: [
                 Text(
                   '등교한 횟수 : ',
-                  style: TextStyle(fontSize: 50.0),
+                  style: TextStyle(fontSize: 30.0),
                 ),
                 FutureBuilder(
                     future: getPrefs(),
