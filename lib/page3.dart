@@ -50,6 +50,9 @@ class _Page3State extends State<Page3> {
       body:SingleChildScrollView(
         child: Column(
           children: [
+            const SizedBox(
+              height:10,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
