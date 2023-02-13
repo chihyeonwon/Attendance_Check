@@ -5,6 +5,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'page2.dart';
+import 'page3.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -18,6 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   var _pages = [
     Page1(),
     Page2(),
+    Page3(),
   ];
 
   static final LatLng universityLatLng = LatLng(
@@ -60,6 +62,10 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             BottomNavigationBarItem(
               label:'학생 정보',
+              icon: Icon(Icons.account_circle),
+            ),
+            BottomNavigationBarItem(
+              label:'등교 정보',
               icon: Icon(Icons.account_circle),
             ),
           ]),
