@@ -26,7 +26,7 @@ class _Page3State extends State<Page3> {
     prefs = await SharedPreferences.getInstance(); // 사용자의 저장소에 connection
     final String? name = prefs.getString('name');
     return Text(name!,
-      style:TextStyle(fontSize:100.0),
+      style:TextStyle(fontSize:60.0),
     );
   }
 
@@ -34,7 +34,7 @@ class _Page3State extends State<Page3> {
     prefs = await SharedPreferences.getInstance(); // 사용자의 저장소에 connection
     final String? dept = prefs.getString('dept');
     return Text(dept!,
-      style:TextStyle(fontSize:100.0),
+      style:TextStyle(fontSize:60.0),
     );
   }
 
