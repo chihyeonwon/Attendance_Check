@@ -44,8 +44,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: renderAppBar(),
-        body: _pages[_index],
+      appBar: renderAppBar(),
+      body: _pages[_index],
       bottomNavigationBar: BottomNavigationBar(
           onTap: (index) {
             setState(() {
@@ -79,7 +79,7 @@ class _Page1State extends State<Page1> {
 
   Future initPrefs() async {
     SharedPreferences prefs = await SharedPreferences.getInstance(); // 사용자의 저장소에 connection
-    if(prefs == null) await prefs.setInt('attendanceCount', 0);
+    if(prefs.getInt('attendanceCount') == null) await prefs.setInt('attendanceCount', 0);
     counter = prefs.getInt('attendanceCount');
   }
 
@@ -174,7 +174,7 @@ class _Page1State extends State<Page1> {
                                             counter++;
                                             prefs.setInt('attendanceCount', counter);
                                           });
-                                          },
+                                        },
                                         child:Text('등교하기'),
                                       ),
                                   ],
@@ -243,4 +243,3 @@ Future<String> checkPermission() async {
   // 위 모든 조건이 통과되면 위치 권한 허가 완료
   return '위치 권한이 허가되었습니다.';
 }
-
