@@ -43,8 +43,6 @@ class _Page2State extends State<Page2> {
   void initState() {
     super.initState();
     getPrefs();
-    getName();
-    getDept();
   }
 
   final _formKey = GlobalKey<FormState>(); // 폼의 상태를 얻기 위한 키
@@ -64,11 +62,11 @@ class _Page2State extends State<Page2> {
               style: TextStyle(fontSize: 50.0),
             ),
             FutureBuilder(
-             future: getPrefs(),
-             builder:(context, snapshot) {
-             return snapshot.data;
-             }
-            ),
+              future: getPrefs(),
+              builder:(context, snapshot) {
+                return snapshot.data;
+              }
+          ),
             Form(
               key:_formKey, // 키 할당
               child: Column(
@@ -121,13 +119,19 @@ class _Page2State extends State<Page2> {
                   FutureBuilder(
                     future:getName(),
                     builder:(context, snapshot) {
-                      return snapshot.data!;
+                      if(snapshot.hasData){
+                        return snapshot.data!;
+                      }
+                      return Text('이름 입력을 진행해주세요.');
                     }
                   ),
                   FutureBuilder(
                       future:getDept(),
                       builder:(context, snapshot) {
-                        return snapshot.data!;
+                        if(snapshot.hasData) {
+                          return snapshot.data!;
+                        }
+                        return Text('학과 입력을 진행해주세요.');
                       }
                       ),
                 ],
