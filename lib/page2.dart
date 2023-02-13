@@ -31,10 +31,20 @@ class _Page2State extends State<Page2> {
     );
   }
 
+  Future getDept() async {
+    prefs = await SharedPreferences.getInstance(); // 사용자의 저장소에 connection
+    final String? dept = prefs.getString('dept');
+    return Text(dept!,
+      style:TextStyle(fontSize:100.0),
+    );
+  }
+
   @override
   void initState() {
     super.initState();
     getPrefs();
+    getName();
+    getDept();
   }
 
   final _formKey = GlobalKey<FormState>(); // 폼의 상태를 얻기 위한 키
@@ -101,7 +111,8 @@ class _Page2State extends State<Page2> {
                       onPressed: () async {
                         if(_formKey.currentState!.validate()) { // 이름과 학과 값이 검증되었다면 결과를 핸드폰 저장소에 저장
                           prefs = await SharedPreferences.getInstance(); // 사용자의 저장소에 connection
-                          prefs.setString('name', _nameController.text.trim());
+                          prefs.setString('name', _nameController.text.trim()); // 사용자의 저장소에 이름 저장
+                          prefs.setString('dept', _deptController.text.trim()); // 사용자의 저장소에 학과 저장
                         }
                       },
                       child:Text('저장'),
@@ -112,7 +123,13 @@ class _Page2State extends State<Page2> {
                     builder:(context, snapshot) {
                       return snapshot.data!;
                     }
-                  )
+                  ),
+                  FutureBuilder(
+                      future:getDept(),
+                      builder:(context, snapshot) {
+                        return snapshot.data!;
+                      }
+                      ),
                 ],
               ),
             ),
