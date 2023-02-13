@@ -50,15 +50,20 @@ class _Page3State extends State<Page3> {
       body:SingleChildScrollView(
         child: Column(
           children: [
-            Text(
-              '등교한 횟수 : ',
-              style: TextStyle(fontSize: 50.0),
-            ),
-            FutureBuilder(
-                future: getPrefs(),
-                builder:(context, snapshot) {
-                  return snapshot.data;
-                }
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  '등교한 횟수 : ',
+                  style: TextStyle(fontSize: 50.0),
+                ),
+                FutureBuilder(
+                    future: getPrefs(),
+                    builder:(context, snapshot) {
+                      return snapshot.data;
+                    }
+                ),
+              ],
             ),
             Column(
                 children:<Widget>[
