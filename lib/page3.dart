@@ -88,6 +88,8 @@ class _Page3State extends State<Page3> {
                         return Text('학과 입력을 진행해주세요.');
                       }
                   ),
+                  Text('자유(自由, Freedom) / 진리(眞理, Truth) / 창조(創造, Creativity)',
+                  style:TextStyle(fontSize:14,)),
                 ],
               ),
             ],
