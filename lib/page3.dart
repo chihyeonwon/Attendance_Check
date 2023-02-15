@@ -47,13 +47,13 @@ class _Page3State extends State<Page3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(
-              height:10,
-            ),
-            Row(
+      body:Column(
+        children: [
+          const SizedBox(
+            height:10,
+          ),
+          Expanded(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
@@ -68,32 +68,37 @@ class _Page3State extends State<Page3> {
                 ),
               ],
             ),
-            Column(
-                children:<Widget>[
-                  FutureBuilder(
-                      future:getName(),
-                      builder:(context, snapshot) {
-                        if(snapshot.hasData){
-                          return snapshot.data!;
-                        }
-                        return Text('이름 입력을 진행해주세요.');
+          ),
+          Expanded(
+            child:Column(
+              children:<Widget>[
+                FutureBuilder(
+                    future:getName(),
+                    builder:(context, snapshot) {
+                      if(snapshot.hasData){
+                        return snapshot.data!;
                       }
-                  ),
-                  FutureBuilder(
-                      future:getDept(),
-                      builder:(context, snapshot) {
-                        if(snapshot.hasData) {
-                          return snapshot.data!;
-                        }
-                        return Text('학과 입력을 진행해주세요.');
+                      return Text('이름 입력을 진행해주세요.');
+                    }
+                ),
+                FutureBuilder(
+                    future:getDept(),
+                    builder:(context, snapshot) {
+                      if(snapshot.hasData) {
+                        return snapshot.data!;
                       }
-                  ),
-                  Text('자유(自由, Freedom) / 진리(眞理, Truth) / 창조(創造, Creativity)',
-                  style:TextStyle(fontSize:14,)),
-                ],
-              ),
-            ],
-        ),
+                      return Text('학과 입력을 진행해주세요.');
+                    }
+                ),
+              ],
+            ),
+          ),
+          Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [Text('자유(自由, Freedom) / 진리(眞理, Truth) / 창조(創造, Creativity)',
+                  style:TextStyle(fontSize:14,)),]
+          ),
+          ],
       ),
     );
   }
