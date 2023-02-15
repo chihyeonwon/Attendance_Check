@@ -27,6 +27,8 @@ class _Page2State extends State<Page2> {
         children: [
           Expanded(
             child: Container(
+              padding:EdgeInsets.all(20.0),
+              margin:EdgeInsets.all(5.0),
               child: Form(
                   key:_formKey, // 키 할당
                   child: Column(
