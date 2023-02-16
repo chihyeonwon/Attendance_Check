@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
     circleId: CircleId('choolCheckCircle'),
     center: universityLatLng, // 원의 중심이 되는 위치
     fillColor: Colors.blue.withOpacity(0.5), // 원의 색상
-    radius: 100, // 원의 반지름 (미터 단위)
+    radius: 200, // 원의 반지름 (미터 단위)
     strokeColor: Colors.blue, // 원의 테두리 색
     strokeWidth: 1, // 원의 두께
   );
@@ -148,7 +148,7 @@ class _Page1State extends State<Page1> {
                             _HomeScreenState.universityLatLng.longitude, // 회사 위치 경도
                           );
 
-                          bool canCheck = distance < 100; // 100미터 이내에 있으면 출근 가능
+                          bool canCheck = distance < 200; // 100미터 이내에 있으면 출근 가능
 
                           showDialog(
                               context: context,
